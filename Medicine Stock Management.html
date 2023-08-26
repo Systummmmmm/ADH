@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicine Stock Management</title>
+    <style>
+        header {
+            background-color: #007BFF;
+                        color: white;
+            text-align: center;
+            padding: 10px;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(27, 177, 210, 255);
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .medicine-list, .prediction {
+            width: 45%;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #predictionResult {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="d1">
+        <header> <h1>Medicine Stock Management</h1></header>
+    <!-- <h1>Medicine Stock Management</h1> -->
+</div>
+    <div class="container">
+        <div class="medicine-list">
+            <h2>Medicine List</h2>
+            <ul id="medicineList">
+                <!-- Medicine items will be added dynamically using JavaScript -->
+            </ul>
+        </div>
+        <div class="prediction">
+            <h2>Predictive Analysis</h2>
+            <p>Based on historical data, predict future stock requirements.</p>
+            <button id="predictButton">Predict</button>
+            <div id="predictionResult">
+                <!-- Prediction result will be displayed here -->
+            </div>
+        </div>
+    </div>
+    <script>
+        const medicineList = document.getElementById("medicineList");
+        const predictButton = document.getElementById("predictButton");
+        const predictionResult = document.getElementById("predictionResult");
+
+        // Sample medicine data (usually fetched from a backend or database)
+        const medicines = [
+            { name: "Paracetamol", quantity: 50 },
+            { name: "Chloramphenicol", quantity: 80 },
+            { name: "Aspirin", quantity: 60 },
+            { name: "Lopamin", quantity: 90 },
+            // Add more medicines
+        ];
+
+        // Populate medicine list
+        medicines.forEach(medicine => {
+            const listItem = document.createElement("li");
+            listItem.textContent = `${medicine.name}: ${medicine.quantity}`;
+            medicineList.appendChild(listItem);
+        });
+
+        // Simulate predictive analysis
+        predictButton.addEventListener("click", () => {
+            // In a real scenario, this would involve fetching data from a backend
+            const predictedResult = predictStockRequirements(medicines);
+            predictionResult.textContent = `Predicted Stock Requirements: ${predictedResult}`;
+        });
+
+        // Sample predictive analysis function (placeholder)
+        function predictStockRequirements(medicines) {
+            // Placeholder logic for predictive analysis
+            const totalQuantity = medicines.reduce((total, medicine) => total + medicine.quantity, 0);
+            return totalQuantity + 50; // Simulated prediction
+        }
+
+        
+  window.chatbaseConfig = {
+    chatbotId: "NzyAOomDU4KKosZpz2cMl",
+  }
+</script>
+<script
+  src="https://www.chatbase.co/embed.min.js"
+  id="NzyAOomDU4KKosZpz2cMl"
+  defer>
+
+    </script>
+</body>
+</html>
